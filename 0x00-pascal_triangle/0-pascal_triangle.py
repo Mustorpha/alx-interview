@@ -1,8 +1,12 @@
-# Generate a list of lists of intergers representing
-# the pascal's triangle of size 'n'
-# 
-# Returns an empty list if 'n <= 0'
-# Assume n will always be an integer
+#!/usr/bin/python3
+
+"""
+Generate a list of lists of intergers representing
+the pascal's triangle of size 'n'
+
+Returns an empty list if 'n <= 0'
+Assume n will always be an integer
+"""
 
 def pascal_triangle(n):
     if n <= 0:
