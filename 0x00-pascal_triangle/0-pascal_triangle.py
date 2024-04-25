@@ -7,11 +7,11 @@
 def pascal_triangle(n):
     """Generate a list of lists of intergers representing the pascal's triangle
 
-Args:
-    n (int): the number of rows in the triangle
+    Args:
+        n (int): the number of rows in the triangle
 
-Return:
-    triangle (list): a list of list representing Pascal triangle
+    Return:
+        triangle (list): a list of list representing Pascal triangle
     """
     if n <= 0:
         return []
