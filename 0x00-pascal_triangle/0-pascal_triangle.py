@@ -3,9 +3,11 @@
 
 
 def pascal_triangle(n):
-    """Get a list of lists of intergers representing the pascal's triangle"""
+    """
+    Get a list of lists of intergers 
+    representing the pascal's triangle
+    """
     triangle = []
-
     if n <= 0:
         return triangle
     else:
@@ -17,7 +19,6 @@ def pascal_triangle(n):
             else:
                 next_row = [1]
                 prev_row = triangle[-1]
-
                 for i in range(len(prev_row)-1):
                     next_row.append(prev_row[i] + prev_row[i+1])
                 next_row.append(1)
