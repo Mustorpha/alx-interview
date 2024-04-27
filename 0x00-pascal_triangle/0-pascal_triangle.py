@@ -3,8 +3,7 @@
 
 
 def pascal_triangle(n):
-    """
-    Get a list of lists of intergers 
+    """Get a list of lists of intergers 
     representing the pascal's triangle
     """
     triangle = []
