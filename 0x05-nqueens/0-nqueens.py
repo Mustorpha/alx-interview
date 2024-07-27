@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""N queens solution finder module.
-"""
+"""0-nqueens"""
+
 import sys
 
 def is_safe(board, row, col, n):
