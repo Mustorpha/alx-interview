@@ -1,42 +1,54 @@
-#!/usr/bin/python3
-"""0. Prime Game - Maria and Ben"""
+def is_prime(num):
+    """Checks if a number is prime.
 
+    Args:
+        num (int): The number to check.
+
+    Returns:
+        bool: True if the number is prime, else False.
+    """
+    if num < 2:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
 
 def isWinner(x, nums):
-    """x - rounds
-    nums - numbers list
+    """Determines the winner of each game.
+
+    Args:
+        x (int): The number of rounds.
+        nums (list): A list of n for each round.
+
+    Returns:
+        str: The name of the player that won the most rounds, or None if it cannot be determined.
     """
-    if x <= 0 or nums is None:
-        return None
-    if x != len(nums):
-        return None
-
-    ben = 0
-    maria = 0
-
-    a = [1 for x in range(sorted(nums)[-1] + 1)]
-    a[0], a[1] = 0, 0
-    for i in range(2, len(a)):
-        rm_multiples(a, i)
-
-    for i in nums:
-        if sum(a[0:i + 1]) % 2 == 0:
-            ben += 1
+    maria_wins = 0
+    ben_wins = 0
+    for n in nums:
+        primes = [i for i in range(2, n + 1) if is_prime(i)]
+        maria_turn = True
+        while primes:
+            if maria_turn:
+                for prime in primes:
+                    if is_prime(prime):
+                        primes = [i for i in primes if i % prime != 0]
+                        break
+                maria_turn = False
+            else:
+                for prime in primes:
+                    if is_prime(prime):
+                        primes = [i for i in primes if i % prime != 0]
+                        break
+                maria_turn = True
+        if maria_turn:
+            ben_wins += 1
         else:
-            maria += 1
-    if ben > maria:
-        return "Ben"
-    if maria > ben:
+            maria_wins += 1
+    if maria_wins > ben_wins:
         return "Maria"
-    return None
-
-
-def rm_multiples(ls, x):
-    """removes multiple
-    of primes
-    """
-    for i in range(2, len(ls)):
-        try:
-            ls[i * x] = 0
-        except (ValueError, IndexError):
-            break
+    elif ben_wins > maria_wins:
+        return "Ben"
+    else:
+        return None
