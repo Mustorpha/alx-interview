@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""0. Prime Game - Maria and Ben"""
+
+
 def is_prime(num):
     """Checks if a number is prime.
 
